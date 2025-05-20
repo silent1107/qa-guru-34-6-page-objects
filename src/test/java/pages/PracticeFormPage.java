@@ -6,12 +6,11 @@ import pages.components.ResultTableComponent;
 
 import static com.codeborne.selenide.Condition.cssValue;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormPage {
 
-    private SelenideElement firstNameInput = $("#firstName"),
+    private final SelenideElement firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             userEmailUnput = $("#userEmail"),
             genderWrapper = $("#genterWrapper"),
@@ -34,6 +33,12 @@ public class PracticeFormPage {
 
     public PracticeFormPage openPage() {
         open("/automation-practice-form");
+        return this;
+    }
+
+    public PracticeFormPage removeBanner() {
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         return this;
     }
 

@@ -30,6 +30,7 @@ public class PracticeFormTests extends BaseTest {
     @Test
     void fillStudentRegistrationFormTest() {
         practiceFormPage.openPage()
+                .removeBanner()
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setUserEmail(email)
@@ -59,6 +60,7 @@ public class PracticeFormTests extends BaseTest {
     @Test
     void fillMinimumDataTest() {
         practiceFormPage.openPage()
+                .removeBanner()
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .selectGender(gender)
@@ -73,6 +75,7 @@ public class PracticeFormTests extends BaseTest {
     @Test
     void fillWrongDataTest() {
         practiceFormPage.openPage()
+                .removeBanner()
                 .clickSubmitButton()
                 .checkBordersColorInvalidInput();
     }
